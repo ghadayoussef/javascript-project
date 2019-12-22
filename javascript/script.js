@@ -44,7 +44,7 @@ function addToCart(id){
         console.log(ProductObject);
     })
 }
-//show product on click on image
+//show product on click on card
 function showProduct(id){
     productArray.forEach(function(ProductObject) {
         if(ProductObject.ProductId==id)
