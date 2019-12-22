@@ -1,7 +1,9 @@
 const URL ="https://gist.githubusercontent.com/a7med-hussien/7fc3e1cba6abf92460d69c0437ce8460/raw/da46abcedf99a3d2bef93a322641926ff60db3c3/products.json"
 let itemsArray = localStorage.getItem("items") ? JSON.parse(localStorage.getItem("items")) : [];
 let productsDetails = JSON.parse(localStorage.getItem("products"));
+let total = JSON.parse(localStorage.getItem("total"));
 const table = document.getElementById("products-table");
+const tableTotal = document.getElementById("table-total");
 function fetchData(){
     fetch(URL)
     .then((resp) => resp.json())
@@ -38,9 +40,19 @@ function makeProduct(products){
                 const td4 = document.createElement('td');
                 td4.innerHTML = element.quantity * item.Price;
                 tr.appendChild(td4);
+                table.appendChild(tr);
             }
         })
+        
     });
+    let totalRow = document.createElement("tr");
+    let totalCart = document.createElement("td");
+    let t = document.createElement("td");
+    totalCart.innerHTML = "Total";        
+    t.innerHTML = total.toString();
+    totalRow.appendChild(totalCart);
+    totalRow.appendChild(t);
+    tableTotal.appendChild(totalRow);
 
 }
 fetchData();

@@ -69,14 +69,14 @@ function getPriceBTN(){
   //console.log("arrayyyy",typeof(priceBtn));
   priceBtn.forEach((element)=>{
     element.addEventListener('click',()=>{
-      if(productsDetails.length == 0){
-        let obj = {
-          productId: element.getAttribute("id"),
-          quantity: 1
-        }
-        productsDetails.push(obj);
-      }
-      else{
+      // if(productsDetails.length == 0){
+      //   let obj = {
+      //     productId: element.getAttribute("id"),
+      //     quantity: 1
+      //   }
+      //   productsDetails.push(obj);
+      // }
+      //else{
         const found = productsDetails.find(p => p.productId == element.getAttribute("id"));
         if(found != null)found.quantity +=1;
         else {
@@ -86,11 +86,9 @@ function getPriceBTN(){
           }
           productsDetails.push(obj);
         }
-      }
+      //}
          
       localStorage.setItem("products",JSON.stringify(productsDetails));
-      itemsArray.push(element.getAttribute("id"));
-      //localStorage.setItem("items",JSON.stringify(itemsArray));
       console.log(element.getAttribute("id"));
       let id = element.getAttribute("id");
       fetch(URL)
@@ -101,7 +99,7 @@ function getPriceBTN(){
         data.ProductCollection.forEach((e)=>{
           if(e.ProductId === id){
             let totalCheckout = parseInt(CHECKOUT.getAttribute("total"));
-            totalCheckout+=e.Price;
+            totalCheckout += e.Price;
             console.log("element price",e.Price);
             console.log("totalCheckout",totalCheckout)
             CHECKOUT.setAttribute("total",totalCheckout.toString());       
