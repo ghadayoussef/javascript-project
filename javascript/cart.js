@@ -1,6 +1,6 @@
 const URL ="https://gist.githubusercontent.com/a7med-hussien/7fc3e1cba6abf92460d69c0437ce8460/raw/da46abcedf99a3d2bef93a322641926ff60db3c3/products.json"
 let itemsArray = localStorage.getItem("items") ? JSON.parse(localStorage.getItem("items")) : [];
-console.log(itemsArray);
+let productsDetails = JSON.parse(localStorage.getItem("products"));
 const table = document.getElementById("products-table");
 function fetchData(){
     fetch(URL)
@@ -12,10 +12,10 @@ function fetchData(){
 }
 
 function makeProduct(products){
-    itemsArray.forEach(element => {
+    productsDetails.forEach(element => {
         //console.log("element",element);
         products.forEach(item=>{
-            if(item.ProductId == element){
+            if(item.ProductId == element.productId){
                 let imageUrl = item.ProductPicUrl;
                 let img = document.createElement("IMG");
                 img.setAttribute("src", imageUrl);
@@ -30,9 +30,14 @@ function makeProduct(products){
 			    td1.appendChild(name);
 			    tr.appendChild(td1);
 			    const td2 = document.createElement('td');
-			    td2.innerHTML = item.Price;
-			    tr.appendChild(td2);
-
+                td2.innerHTML = item.Price;
+                tr.appendChild(td2);
+                const td3 = document.createElement('td');
+                td3.innerHTML = element.quantity;
+                tr.appendChild(td3);
+                const td4 = document.createElement('td');
+                td4.innerHTML = element.quantity * item.Price;
+                tr.appendChild(td4);
             }
         })
     });

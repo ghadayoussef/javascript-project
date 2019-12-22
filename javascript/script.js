@@ -13,10 +13,7 @@ let productsDetails = localStorage.getItem("products") ? JSON.parse(localStorage
 
 
 const cartView = document.getElementById("redirect");
-console.log(typeof(cartView));
 cartView.addEventListener('click',()=>{
-  event.preventDefault();
-  console.log("hola");
   window.location.href = "cart.html";
 })
 
@@ -39,7 +36,6 @@ function fetchItems(url){
 
 function createDiv(data){
   var element = data.ProductCollection;
-  console.log("elll",element[0]);
   var count = 0;
   for(var i = 0; i < 41; i++) {
     var row = document.createElement("div");
@@ -70,31 +66,31 @@ function createDiv(data){
 }
 function getPriceBTN(){
   let priceBtn = document.querySelectorAll(".priceBtn");
-  console.log("arrayyyy",typeof(priceBtn));
+  //console.log("arrayyyy",typeof(priceBtn));
   priceBtn.forEach((element)=>{
     element.addEventListener('click',()=>{
-      // productsDetails.forEach(p =>{        
-      //   if(p.productId === element.getAttribute("id")){
-      //     console.log("in if ",p.productId);
-      //     p.quantity += 1;
-
-      //   }
-      //   else{
-      //     console.log("in else ");
-      //     let obj = {
-      //       productId: element.getAttribute("id"),
-      //       quantity: 1
-      //     }
-      //     productsDetails.push(obj);
-      //   }
-      // }
-      // )
-      
-      
+      if(productsDetails.length == 0){
+        let obj = {
+          productId: element.getAttribute("id"),
+          quantity: 1
+        }
+        productsDetails.push(obj);
+      }
+      else{
+        const found = productsDetails.find(p => p.productId == element.getAttribute("id"));
+        if(found != null)found.quantity +=1;
+        else {
+          let obj = {
+            productId: element.getAttribute("id"),
+            quantity: 1
+          }
+          productsDetails.push(obj);
+        }
+      }
+         
       localStorage.setItem("products",JSON.stringify(productsDetails));
-
       itemsArray.push(element.getAttribute("id"));
-      localStorage.setItem("items",JSON.stringify(itemsArray));
+      //localStorage.setItem("items",JSON.stringify(itemsArray));
       console.log(element.getAttribute("id"));
       let id = element.getAttribute("id");
       fetch(URL)
@@ -102,11 +98,11 @@ function getPriceBTN(){
         return response.json();
         })
       .then((data)=>{
-        data.ProductCollection.forEach((element)=>{
-          if(element.ProductId === id){
+        data.ProductCollection.forEach((e)=>{
+          if(e.ProductId === id){
             let totalCheckout = parseInt(CHECKOUT.getAttribute("total"));
-            totalCheckout+=element.Price;
-            console.log("element price",element.Price);
+            totalCheckout+=e.Price;
+            console.log("element price",e.Price);
             console.log("totalCheckout",totalCheckout)
             CHECKOUT.setAttribute("total",totalCheckout.toString());       
             CHECKOUT.innerHTML = totalCheckout;
