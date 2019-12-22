@@ -5,6 +5,10 @@ CHECKOUT.setAttribute("total",totalPrice);
 let itemsArray = localStorage.getItem("items") ? JSON.parse(localStorage.getItem("items")) : [];
 localStorage.setItem("items",JSON.stringify(itemsArray));
 let data = JSON.parse(localStorage.getItem("items"));
+let totalCart = localStorage.getItem("total") ? JSON.parse(localStorage.getItem("total")) : 0;
+localStorage.setItem("total",JSON.stringify(totalCart));
+let productsDetails = localStorage.getItem("products") ? JSON.parse(localStorage.getItem("products")) : [];
+
 
 
 
@@ -69,6 +73,26 @@ function getPriceBTN(){
   console.log("arrayyyy",typeof(priceBtn));
   priceBtn.forEach((element)=>{
     element.addEventListener('click',()=>{
+      // productsDetails.forEach(p =>{        
+      //   if(p.productId === element.getAttribute("id")){
+      //     console.log("in if ",p.productId);
+      //     p.quantity += 1;
+
+      //   }
+      //   else{
+      //     console.log("in else ");
+      //     let obj = {
+      //       productId: element.getAttribute("id"),
+      //       quantity: 1
+      //     }
+      //     productsDetails.push(obj);
+      //   }
+      // }
+      // )
+      
+      
+      localStorage.setItem("products",JSON.stringify(productsDetails));
+
       itemsArray.push(element.getAttribute("id"));
       localStorage.setItem("items",JSON.stringify(itemsArray));
       console.log(element.getAttribute("id"));
@@ -86,6 +110,8 @@ function getPriceBTN(){
             console.log("totalCheckout",totalCheckout)
             CHECKOUT.setAttribute("total",totalCheckout.toString());       
             CHECKOUT.innerHTML = totalCheckout;
+            localStorage.setItem("total",JSON.stringify(totalCheckout));
+            
           }
         })
       })
