@@ -1,12 +1,21 @@
-const prices = [];
-var pics = []
-var obj;
-var arrtest = [];
 const URL = "https://gist.githubusercontent.com/a7med-hussien/7fc3e1cba6abf92460d69c0437ce8460/raw/da46abcedf99a3d2bef93a322641926ff60db3c3/products.json"
 const CHECKOUT = document.getElementById("checkout");
 totalPrice = 0;
 CHECKOUT.setAttribute("total",totalPrice);
-let priceBtn = document.querySelector("#priceBtn");
+let itemsArray = localStorage.getItem("items") ? JSON.parse(localStorage.getItem("items")) : [];
+localStorage.setItem("items",JSON.stringify(itemsArray));
+let data = JSON.parse(localStorage.getItem("items"));
+
+
+
+const cartView = document.getElementById("redirect");
+console.log(typeof(cartView));
+cartView.addEventListener('click',()=>{
+  event.preventDefault();
+  console.log("hola");
+  window.location.href = "cart.html";
+})
+
 function fetchItems(url){
     fetch(url)
     .then(function(response){
@@ -60,6 +69,8 @@ function getPriceBTN(){
   console.log("arrayyyy",typeof(priceBtn));
   priceBtn.forEach((element)=>{
     element.addEventListener('click',()=>{
+      itemsArray.push(element.getAttribute("id"));
+      localStorage.setItem("items",JSON.stringify(itemsArray));
       console.log(element.getAttribute("id"));
       let id = element.getAttribute("id");
       fetch(URL)
