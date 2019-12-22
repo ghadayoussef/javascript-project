@@ -1,110 +1,88 @@
 const prices = [];
 var pics = []
 var obj;
-var arrtest = []
+var arrtest = [];
+const URL = "https://gist.githubusercontent.com/a7med-hussien/7fc3e1cba6abf92460d69c0437ce8460/raw/da46abcedf99a3d2bef93a322641926ff60db3c3/products.json"
+const CHECKOUT = document.getElementById("checkout");
+totalPrice = 0;
+CHECKOUT.setAttribute("total",totalPrice);
+let priceBtn = document.querySelector("#priceBtn");
 function fetchItems(url){
     fetch(url)
     .then(function(response){
         return response.json();
         })
-    .then((data) =>{       
-        // //console.log("all data",data.ProductCollection[0]);
-        // data.ProductCollection.forEach(element => {
-        // prices.push(element.Price);
-        // pics.push(element.ProductPicUrl);
-        // //console.log("element Price",element.Price)
-        // let img = document.createElement("IMG");
-        // img.setAttribute("src", element.ProductPicUrl);
-        // img.setAttribute("width", "304");
-        // img.setAttribute("height", "228");
-        // img.setAttribute("alt", "The Pulpit Rock");
-        // document.body.appendChild(img);
-        
-
-
-
-        //});
+    .then((data) =>{          
         createDiv(data);
+        getPriceBTN();
         
     })
-    // .catch((err) =>{
-    //     console.error(err);
+    .catch((err) =>{
+        console.error(err);
 
-    // })
+    })
 
 }
 
 function createDiv(data){
   var element = data.ProductCollection;
   console.log("elll",element[0]);
-   var count = 0;
-  //  for(var i = 0; i < 123; i++){
-  //   let col = document.createElement("div");
-  //   //col.classList.add("col-lg-3");
-  //   let img = document.createElement("IMG");
-  //   img.setAttribute("src", element[i].ProductPicUrl);
-  //   img.setAttribute("width", "300");
-  //   img.setAttribute("height", "300");
-  //   col.appendChild(img);
-  //   document.body.appendChild(col);
-  //  }
-   
+  var count = 0;
   for(var i = 0; i < 41; i++) {
     var row = document.createElement("div");
-    row.classList.add("row");    
-    //document.body.innerHTML+='<div class="row">';
+    row.classList.add("row");
     for(k = 0; k < 3; k++) {
-      console.log("row no",i)
       let col = document.createElement("div");
-      //col.classList.add("col-lg-4");
       col.className = "col-lg-4";
       let img = document.createElement("IMG");
       img.setAttribute("src", element[count].ProductPicUrl);
       img.setAttribute("width", "304");
       img.setAttribute("height", "228");
+      let label = document.createElement("LABEL");
+      let text = document.createTextNode(element[count].ProductId);
+      let addBtn = document.createElement("BUTTON");
+      let btnText = document.createTextNode("Add");
+      addBtn.appendChild(btnText);
+      addBtn.className = "priceBtn";
+      addBtn.setAttribute("id",element[count].ProductId);
+      label.appendChild(text);
       col.appendChild(img);
+      col.appendChild(label);  
+      col.appendChild(addBtn);    
       row.appendChild(col);
       count++;
     }
     document.body.appendChild(row);
 }
-
 }
-async function fetchProducts(url) {
-    const response = await fetch(url);
-    const json = await response.json();
-    console.log("jsonnnnn ",json)
-    obj = json;
-    console.log("inside function",obj)
-    // var prices = await json.ProductCollection;
-    // console.log(prices)
+function getPriceBTN(){
+  let priceBtn = document.querySelectorAll(".priceBtn");
+  console.log("arrayyyy",typeof(priceBtn));
+  priceBtn.forEach((element)=>{
+    element.addEventListener('click',()=>{
+      console.log(element.getAttribute("id"));
+      let id = element.getAttribute("id");
+      fetch(URL)
+      .then(function(response){
+        return response.json();
+        })
+      .then((data)=>{
+        data.ProductCollection.forEach((element)=>{
+          if(element.ProductId === id){
+            let totalCheckout = parseInt(CHECKOUT.getAttribute("total"));
+            totalCheckout+=element.Price;
+            console.log("element price",element.Price);
+            console.log("totalCheckout",totalCheckout)
+            CHECKOUT.setAttribute("total",totalCheckout.toString());       
+            CHECKOUT.innerHTML = totalCheckout;
+          }
+        })
+      })
+      .catch((err) =>{
+        console.error(err);
 
-    return json.ProductCollection;
+    })
+    })
+  })
 }
-
-const URL = "https://gist.githubusercontent.com/a7med-hussien/7fc3e1cba6abf92460d69c0437ce8460/raw/da46abcedf99a3d2bef93a322641926ff60db3c3/products.json"
-//console.log("function ",fetchProducts(URL))
-      //.then(data => dataset = data);
-//console.log("dataset",obj)
-//console.log("henaaaa",prices)
-//console.log("prices length",prices)
 fetchItems(URL);
-//console.log("prices ",typeof(prices));
-//console.log("hena el array",Object.values(prices))
-//console.log("pics url  ",pics);
-var dataset; 
-fetch('https://jsonplaceholder.typicode.com/todos/1') 
-      .then(response => response.json()) 
-      .then(data => {
-       dataset = data;
-        logDataset();
-        doSomething();
-  });  
-  function logDataset () { 
-    console.log("ddddddd",dataset); 
-  }
-  function doSomething(){
-    arrtest.push(dataset);
-    console.log("tttttt",arrtest)
-
-  }
