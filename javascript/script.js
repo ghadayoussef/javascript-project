@@ -19,19 +19,19 @@ function insertToHomePage(product) {
     productArray.push(product)
      mainDiv.insertAdjacentHTML('beforeend', `
       <div class="col-lg-4 col-md-6 text-center">
-            <div class="card  media-block card-bordered">
+            <div class="card  media-block card-bordered" aria-valuenow="${product.ProductId}" style="cursor: pointer;" onclick="showProduct(getAttribute('aria-valuenow'))">
             <div style="height: 50%;">
             <div class="text-card media-block card-borderedenter m-md-3 text-primary w-100">
                 <h6 class="font-weight-bold">${product.Name}</h6>
             </div>
             <div>
-                <img class="ff" src="${product.ProductPicUrl}" alt="${product.ProductId}" style="cursor: pointer;" onclick="showProduct(this.alt)")>
+                <img class="ff" src="${product.ProductPicUrl}">
             </div>
             <div class="d-inline-block">
                 <h3 class="text-danger m-md-5">${"$ "+product.Price}</h3>
             </div>
             <div class="d-inline-block">
-                <button  class="mb-2 btn btn-dark fa fa-shopping-cart $" value="${product.ProductId}" onclick="addToCart(this.value)"></button>
+                <button  class="mb-2 btn btn-dark fa fa-shopping-cart $" value="${product.ProductId}" onclick="event.stopPropagation(); addToCart(this.value)"></button>
             </div>
         </div>
     </div>
