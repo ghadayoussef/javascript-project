@@ -2,9 +2,6 @@ const URL = "https://gist.githubusercontent.com/a7med-hussien/7fc3e1cba6abf92460
 const CHECKOUT = document.getElementById("checkout");
 totalPrice = 0;
 CHECKOUT.setAttribute("total",totalPrice);
-let itemsArray = localStorage.getItem("items") ? JSON.parse(localStorage.getItem("items")) : [];
-localStorage.setItem("items",JSON.stringify(itemsArray));
-let data = JSON.parse(localStorage.getItem("items"));
 let totalCart = localStorage.getItem("total") ? JSON.parse(localStorage.getItem("total")) : 0;
 localStorage.setItem("total",JSON.stringify(totalCart));
 let productsDetails = localStorage.getItem("products") ? JSON.parse(localStorage.getItem("products")) : [];
@@ -22,7 +19,8 @@ function fetchItems(url){
     .then(function(response){
         return response.json();
         })
-    .then((data) =>{          
+    .then((data) =>{    
+        CHECKOUT.innerHTML = localStorage.getItem("total");     
         createDiv(data);
         getPriceBTN();
         
@@ -33,6 +31,7 @@ function fetchItems(url){
     })
 
 }
+//list all items function
 
 function createDiv(data){
   var element = data.ProductCollection;
@@ -64,19 +63,11 @@ function createDiv(data){
     document.body.appendChild(row);
 }
 }
+//add button function
 function getPriceBTN(){
   let priceBtn = document.querySelectorAll(".priceBtn");
-  //console.log("arrayyyy",typeof(priceBtn));
   priceBtn.forEach((element)=>{
     element.addEventListener('click',()=>{
-      // if(productsDetails.length == 0){
-      //   let obj = {
-      //     productId: element.getAttribute("id"),
-      //     quantity: 1
-      //   }
-      //   productsDetails.push(obj);
-      // }
-      //else{
         const found = productsDetails.find(p => p.productId == element.getAttribute("id"));
         if(found != null)found.quantity +=1;
         else {
@@ -85,9 +76,7 @@ function getPriceBTN(){
             quantity: 1
           }
           productsDetails.push(obj);
-        }
-      //}
-         
+        }         
       localStorage.setItem("products",JSON.stringify(productsDetails));
       console.log(element.getAttribute("id"));
       let id = element.getAttribute("id");
@@ -98,8 +87,11 @@ function getPriceBTN(){
       .then((data)=>{
         data.ProductCollection.forEach((e)=>{
           if(e.ProductId === id){
-            let totalCheckout = parseInt(CHECKOUT.getAttribute("total"));
+            //let totalCheckout = parseInt(CHECKOUT.getAttribute("total"));
+            let totalCheckout = parseInt(JSON.parse(localStorage.getItem("total")));
+            console.log("type of totalCheckout",typeof(totalCheckout));
             totalCheckout += e.Price;
+            console.log("hena el checkout ",totalCheckout);
             console.log("element price",e.Price);
             console.log("totalCheckout",totalCheckout)
             CHECKOUT.setAttribute("total",totalCheckout.toString());       
