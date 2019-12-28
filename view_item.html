@@ -18,16 +18,15 @@
     <div class="container">
       <div class="row product-box">
         <div class="col-md-6 product-img">
-          <img src="laptop.jpg">
+          <img src="laptop.jpg" class="productImg" id="productImg" >
         </div>
         <div class="col-md-6 product-desc">
-          <h4>SMART LAPTOP</h4>
-          <h2>LAPTOPS EDITION</h2>
-          <h5>MODEL AS1500</h5>
-          <h2 class="price">$299</h2>
+          <h4>Accessories</h4>
+          <h2 id="productName"></h2>
+          <h2 class="price">$ <span id="productPrice"></span></h2>
           <hr>
-          <p>
-            8mm Silver Aluminum Case with Blue Sport Band. Its perfect fit for tracking fitness. 100% waterproof. Buy this limted edition sports edition.
+          <p id="productDescription" >
+           
           </p>
           <hr>
           <div class="option">
@@ -102,9 +101,7 @@
         </div>
         <!--end item-->
 
-        <div class="copy-right text-center">
-          Copyright ©2019 All rights reserved
-        </div>
+       
       </div>
     </div>
   </div>
@@ -129,6 +126,38 @@
     } );
   } );
 </script>
+<script type="text/javascript">
+  let productArray=[]
+function getProducts() {
+    fetch("https://gist.githubusercontent.com/a7med-hussien/7fc3e1cba6abf92460d69c0437ce8460/raw/da46abcedf99a3d2bef93a322641926ff60db3c3/products.json"
+        ,{
+           cache:"force-cache",
+            method: "GET",
+            mode: "cors"
+        }
+        )
+        .then((resp) => resp.json())
+        .then(function(data) {
+            console.log( data.ProductCollection[0] );
+            console.log( data.ProductCollection[0].Description );
+            console.log( data.ProductCollection[0].ProductId );
+            console.log( data.ProductCollection[0].Name );
+            console.log( data.ProductCollection[0].ProductPicUrl );
+            console.log( data.ProductCollection[0].Price );
+            
+            productPrice.innerHTML =  data.ProductCollection[0].Price;
+            productDescription.innerHTML =  data.ProductCollection[0].Description;
+            productName.innerHTML =  data.ProductCollection[0].Name;
+            productImg.setAttribute("src", data.ProductCollection[0].ProductPicUrl );
+            
+            
+        })
+        .catch(function(error) {
+            alert("Network Error")
+        });
+}
+getProducts();
 
+</script>
      
 </html>

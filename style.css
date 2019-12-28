@@ -1,5 +1,7 @@
 
-
+.productImg{
+  width: 100%;
+}
 /*start footer*/
 .footer{
 	background-color: #04091e;
@@ -12,6 +14,7 @@
 }
 .footer p{
 	margin-bottom: 10px;
+  color: #c6c6c6;
 }
 .footer .copy-right{padding-top: 70px;width: 100%;}
 /*end footer/
@@ -141,7 +144,7 @@ input:focus{
       }
       .product-box h2{ color: #374048;text-transform: uppercase;
     font: 700 33px/1 "Poppins",sans-serif;
-    margin: 0 0 10px;  }
+    margin: 10px 0 10px;  }
 
     .product-box h5{color: #a8afb5;    text-transform: uppercase;
     font: 300 16px/1 "Poppins",sans-serif;
