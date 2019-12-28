@@ -46,7 +46,7 @@
           <hr>
           <div class="option">
             <h4>QTY</h4>
-            <input type="text" value="1" name="quantity" class="quanity form-control">
+            <input type="text" value="1" name="quantity" id="quantity" class="quanity form-control">
             <div class="count">
               <button class="count-up btn btn-default" type="button" style="border-bottom: 0;">+</button>
               <button class="count-down btn btn-default" type="button">-</button>  
@@ -56,7 +56,7 @@
 
           <hr>
           
-          <button class="btn btn-rounded btn-block add-to-cart">add to cart</button>
+          <button class="productIdButton btn btn-rounded btn-block add-to-cart">add to cart</button>
         </div>
       </div>
     </div>
@@ -142,8 +142,11 @@
   } );
 </script>
 <script type="text/javascript">
- let productArray=[]
-function getProducts() {
+ 
+function getProduct() {
+  let productsDetails = localStorage.getItem("products") ? JSON.parse(localStorage.getItem("products")) : [];
+  let totalCart = localStorage.getItem("total") ? JSON.parse(localStorage.getItem("total")) : 0;
+
     fetch("https://gist.githubusercontent.com/a7med-hussien/7fc3e1cba6abf92460d69c0437ce8460/raw/da46abcedf99a3d2bef93a322641926ff60db3c3/products.json"
         ,{
            cache:"force-cache",
@@ -161,7 +164,23 @@ function getProducts() {
                     productDescription.innerHTML =  product.Description;
                     productName.innerHTML =  product.Name;
                     productImg.setAttribute("src", product.ProductPicUrl );
+                    document.querySelector(".productIdButton").setAttribute("id" , id );
+                    document.getElementById(id).addEventListener("click",(e)=>{
+                      console.log(quantity.value)
+                     const found = productsDetails.find(p => p.productId == id);
+                     if(found != null)found.quantity += +quantity.value;
+                     else{
+                      productsDetails.push({
+                        productId: urlParams.get('id'),
+                        quanity: quantity.value
 
+                      })
+                     }
+                     totalCart += +productPrice.innerHTML * +quantity.value;
+                      
+                      localStorage.setItem("products",JSON.stringify(productsDetails));
+                      localStorage.setItem("total",totalCart)
+                     })
                 }
             });
         })
@@ -169,7 +188,7 @@ function getProducts() {
             alert("Network Error")
         });
 }
-getProducts();
+getProduct();
 
 </script>
      
