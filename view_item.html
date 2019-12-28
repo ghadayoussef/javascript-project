@@ -142,7 +142,7 @@
   } );
 </script>
 <script type="text/javascript">
-  let productArray=[]
+ let productArray=[]
 function getProducts() {
     fetch("https://gist.githubusercontent.com/a7med-hussien/7fc3e1cba6abf92460d69c0437ce8460/raw/da46abcedf99a3d2bef93a322641926ff60db3c3/products.json"
         ,{
@@ -153,19 +153,17 @@ function getProducts() {
         )
         .then((resp) => resp.json())
         .then(function(data) {
-            console.log( data.ProductCollection[0] );
-            console.log( data.ProductCollection[0].Description );
-            console.log( data.ProductCollection[0].ProductId );
-            console.log( data.ProductCollection[0].Name );
-            console.log( data.ProductCollection[0].ProductPicUrl );
-            console.log( data.ProductCollection[0].Price );
-            
-            productPrice.innerHTML =  data.ProductCollection[0].Price;
-            productDescription.innerHTML =  data.ProductCollection[0].Description;
-            productName.innerHTML =  data.ProductCollection[0].Name;
-            productImg.setAttribute("src", data.ProductCollection[0].ProductPicUrl );
-            
-            
+            data.ProductCollection.forEach((product)=>{
+                var urlParams = new URLSearchParams(window.location.search);
+                var id = urlParams.get('id');
+                if( product.ProductId ==  id  ){
+                    productPrice.innerHTML =  product.Price;
+                    productDescription.innerHTML =  product.Description;
+                    productName.innerHTML =  product.Name;
+                    productImg.setAttribute("src", product.ProductPicUrl );
+
+                }
+            });
         })
         .catch(function(error) {
             alert("Network Error")
