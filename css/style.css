@@ -14,3 +14,29 @@
     width: 200px !important ;
     height: 200px !important;
 }
+.TotalButton {
+    top: 300px;
+    right: 0;
+    position: fixed;
+    background-color: rgb(219, 218, 218);
+    padding-right: 40px;
+    padding-left: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.Checkout {
+    top: 50px;
+    /* left: 100px; */
+    right: 0;
+    /*position: fixed; */
+    /* background-color: rgb(219, 218, 218); */
+    padding-right: 40px;
+    padding-left: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 10px;
+}
+
