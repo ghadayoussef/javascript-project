@@ -12,7 +12,6 @@ function fetchData(){
     })
     
 }
-
 function makeProduct(products){
     productsDetails.forEach(element => {
         //console.log("element",element);

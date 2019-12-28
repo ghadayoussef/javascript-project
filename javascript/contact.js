@@ -17,8 +17,7 @@ function sendFeedback(fname,email,subject,message){
         subject:subject,
         message:message
     })
-}
-)
+})
 .then((resp) => resp.json())
 .then(function(data) {
     console.log(data);
