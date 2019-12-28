@@ -1,0 +1,223 @@
+
+
+/*start footer*/
+.footer{
+	background-color: #04091e;
+}
+.footer h4{
+	color: #fff;
+    margin-bottom: 25px;
+    font-weight: 600;
+    font-size: 19px;
+}
+.footer p{
+	margin-bottom: 10px;
+}
+.footer .copy-right{padding-top: 70px;width: 100%;}
+/*end footer/
+
+
+
+/*start contact page*/
+.single-contact{
+	    overflow: hidden;
+	    margin-bottom: 20px;
+}
+.single-contact i{
+	float: left;
+    font-size: 30px;
+    color: #f7631b;
+    margin-right: 30px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    width: 8%;
+    text-align: center;
+}
+.single-contact .contact-details{
+	    float: left;
+}
+.single-contact h5{
+	font-weight: 300;
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #222;
+}
+
+.contact-form form input,
+.contact-form form textarea{
+	margin-bottom: 5px;
+    border-radius: 0px;
+    padding: 25px 15px;
+    font-size: 13px;
+    font-weight: 300;
+}
+.contact-form h2:after{
+	content: "";
+    top: 60px;
+    left: 15px;
+    position: absolute;
+    width: 100px;
+    height: 1px;
+    border-bottom: 2px solid #f7631b;
+}
+.contact-form h2,
+.contact-form p{
+	color: #000
+}
+input:focus{
+	 background-color: #eee;
+}
+.contact-form form textarea{
+	height: 190px;
+}
+/*end contact page*/
+
+/*start framework*/
+.header-info i{
+	margin: 0px 10px;
+    color: #fff;
+    font-size: 16px;
+    
+}
+.table{
+	height: 100%;
+	display: table;
+}
+.table-row{
+	display: table-row;
+}
+.primary-btn{
+	background: #f7631b;
+    line-height: 42px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border: none;
+    color: #fff;
+    display: inline-block;
+    font-weight: 500;
+    position: relative;
+    -webkit-transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    position: relative;
+}
+
+.p-top-bottom{
+	padding-top: 70px;
+	padding-bottom: 70px;
+}
+.mg-20{
+	margin-bottom: 20px;
+}
+
+/*end framework*/
+
+.form-group{
+	margin-bottom: 2rem;
+}
+.contact-form form input, .contact-form form textarea{
+	border-radius: 10px;
+}
+
+/*start add new syle for view and contact*/
+.product-box{
+        max-width: 945px;
+        margin:90px auto;
+        box-shadow: 0 0 62px rgba(0,0,0,.3);
+        position: relative;
+        padding: 70px 20px;
+      }
+      .product-img{
+        position: relative;
+      }
+      .product-box h4{
+            color: #848e96;
+            text-transform: uppercase;
+    font: 400 20px/1 "Poppins",sans-serif;
+    margin: 0 0 8px;
+
+      }
+      .product-box h2{ color: #374048;text-transform: uppercase;
+    font: 700 33px/1 "Poppins",sans-serif;
+    margin: 0 0 10px;  }
+
+    .product-box h5{color: #a8afb5;    text-transform: uppercase;
+    font: 300 16px/1 "Poppins",sans-serif;
+    margin: 0 0 20px;}
+
+    .product-box .price{
+      color: #0084ff;
+      font: 600 33px/34px "Poppins",sans-serif;
+    margin: 0 0 25px;
+    text-transform: uppercase;
+    }
+    .product-box p{
+      text-transform: uppercase;
+      color: #979a9d;
+      font: 300 16px/28px "Poppins",sans-serif;
+    margin-bottom: 0;
+    }
+    .product-box input{
+      width: 48px;
+      box-shadow: none;
+      height: 42px;
+      padding: 0;
+      border-radius: 0;
+      text-align: center;
+      border-right: 0;
+      float: left;
+    }
+    .product-box .count{
+      float: left;
+    }
+    .product-box .option{
+      overflow: hidden;
+    }
+    .product-box .option h4{
+      font-weight: 600
+    }
+
+    .product-box button.count-up,button.count-down{
+      border-radius: 0;
+      display: block;
+    width: 38px;
+    text-align: center;
+    padding: 0;
+    margin-left: 0;
+        border: 1px solid #ced4da;
+        height: 21px;
+    }
+    .product-box button.count-up:focus,button.count-down:focus ,.product-box input{
+      box-shadow: none !important;
+      border-color: none !important;
+    }
+    .product-box .add-to-cart{
+    text-transform: uppercase;
+    border: none;
+    transition: all 300ms linear 0s;
+    border-radius: 0;
+    background: #0084ff;
+    color: #fff;
+    padding: 30px;
+    font-weight: 800;
+    font-size: 20px;
+    }
+    .product-box .add-to-cart:hover{
+      color:#fff;
+      background: #555;
+    }
+
+    @media (min-width: 992px) {
+  .product-box img{
+      width: 90%;
+      position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    }
+
+}
+
+/*end add new syle for view and contact*/
