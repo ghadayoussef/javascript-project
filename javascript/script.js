@@ -7,7 +7,7 @@ localStorage.setItem("total",JSON.stringify(totalCart));
 let productsDetails = localStorage.getItem("products") ? JSON.parse(localStorage.getItem("products")) : [];
 let productArray=[];
 
-const cartView = document.getElementById("redirect");
+const cartView = document.getElementById("checkout");
 cartView.addEventListener('click',()=>{
   window.location.href = "cart.html";
 })
@@ -39,7 +39,7 @@ function insertToHomePage(products) {
       productArray.push(product)
       mainDiv.insertAdjacentHTML('beforeend', `
        <div class="col-lg-4 col-md-6 text-center">
-             <div class="card  media-block card-bordered" aria-valuenow="${product.ProductId}" style="cursor: pointer;" onclick="showProduct(getAttribute('aria-valuenow'))">
+             <div id="${product.ProductId}" class="card  media-block card-bordered" style="cursor: pointer;" onclick="showProduct(getAttribute('id'))" )>
              <div style="height: 50%;">
              <div class="text-card media-block card-borderedenter m-md-3 text-primary w-100">
                  <h6 class="font-weight-bold">${product.Name}</h6>
@@ -51,7 +51,7 @@ function insertToHomePage(products) {
                  <h3 class="text-danger m-md-5">${"$ "+product.Price}</h3>
              </div>
              <div class="d-inline-block">
-                 <button  class="mb-2 btn btn-dark fa fa-shopping-cart priceBtn" id="${product.ProductId}""></button>
+                 <button  class="mb-2 btn btn-dark fa fa-shopping-cart priceBtn" id="${product.ProductId}"></button>
              </div>
          </div>
      </div>
@@ -74,7 +74,8 @@ function getTotal(){
 function getPriceBTN(products){
   let priceBtn = document.querySelectorAll(".priceBtn");
   priceBtn.forEach((element)=>{
-    element.addEventListener('click',()=>{
+    element.addEventListener('click',(e)=>{
+      e.stopPropagation();
         const found = productsDetails.find(p => p.productId == element.getAttribute("id"));
         if(found != null)found.quantity +=1;
         else {
@@ -112,8 +113,12 @@ function getPriceBTN(products){
 //show product on click on card
 function showProduct(id){
     productArray.forEach(function(ProductObject) {
-        if(ProductObject.ProductId==id)
-            console.log(ProductObject);
+        if(ProductObject.ProductId==id){
+          let queryString = "?id="+id;
+          window.location.href = "view-item.html" + queryString;
+        }
+
+
     })
 }
 getProducts()
