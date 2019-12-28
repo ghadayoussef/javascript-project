@@ -1,0 +1,134 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+  
+    <title></title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet">
+    
+  </head>
+  <body>
+
+    <!--start product view-->
+    <div class="container">
+      <div class="row product-box">
+        <div class="col-md-6 product-img">
+          <img src="laptop.jpg">
+        </div>
+        <div class="col-md-6 product-desc">
+          <h4>SMART LAPTOP</h4>
+          <h2>LAPTOPS EDITION</h2>
+          <h5>MODEL AS1500</h5>
+          <h2 class="price">$299</h2>
+          <hr>
+          <p>
+            8mm Silver Aluminum Case with Blue Sport Band. Its perfect fit for tracking fitness. 100% waterproof. Buy this limted edition sports edition.
+          </p>
+          <hr>
+          <div class="option">
+            <h4>QTY</h4>
+            <input type="text" value="1" name="quantity" class="quanity form-control">
+            <div class="count">
+              <button class="count-up btn btn-default" type="button" style="border-bottom: 0;">+</button>
+              <button class="count-down btn btn-default" type="button">-</button>  
+            </div>
+            
+          </div>
+
+          <hr>
+          
+          <button class="btn btn-rounded btn-block add-to-cart">add to cart</button>
+        </div>
+      </div>
+    </div>
+    <!--end product view-->
+  
+
+
+   <!--start footer-->
+  <div class="footer p-top-bottom">
+    <div class="container">
+      <div class="row">
+        <!--start item-->
+        <div class="col-md-2">
+          <h4>Top Products</h4>
+          <p>Managed Website</p>
+          <p>Manage Reputation</p>
+          <p>Power Tools</p>
+          <p>Marketing Service</p>
+        </div>
+        <!--end item-->
+
+         <!--start item-->
+        <div class="col-md-2">
+          <h4>Quick links</h4>
+          <p>Jobs</p>
+          <p>Brand Assets</p>
+          <p>Investor Relations</p>
+          <p>Terms of Service</p>
+        </div>
+        <!--end item-->
+
+         <!--start item-->
+        <div class="col-md-2">
+          <h4>Features</h4>
+          <p>Jobs</p>
+          <p>Brand Assets</p>
+          <p>Investor Relations</p>
+          <p>Terms of Service</p>
+        </div>
+        <!--end item-->
+
+         <!--start item-->
+        <div class="col-md-2">
+          <h4>Resources</h4>
+          <p>Guides</p>
+          <p>Research</p>
+          <p>Experts</p>
+          <p>Agencies</p>
+        </div>
+        <!--end item-->
+
+         <!--start item-->
+        <div class="col-md-4">
+          <h4>Newsletter</h4>
+          <p>Stay update with our latest</p>
+          <input type="text" name="address" class="form-control" placeholder="Enter Email Address">
+        </div>
+        <!--end item-->
+
+        <div class="copy-right text-center">
+          Copyright ©2019 All rights reserved
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--end footer-->
+
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script type="text/javascript">
+  $( function(){
+    $(".count-up").click( function(){
+      $("input.quanity").val( +$("input").val() + 1 );
+    } );
+
+    $(".count-down").click( function(){
+      if( +$("input").val() >= 1 ){
+        $("input.quanity").val( +$("input").val() - 1 )  
+      }
+         
+    } );
+  } );
+</script>
+
+     
+</html>
