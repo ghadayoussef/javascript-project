@@ -20,7 +20,7 @@ function fetchItems(url){
         return response.json();
         })
     .then((data) =>{    
-        CHECKOUT.innerHTML = localStorage.getItem("total");     
+        getTotal();
         createDiv(data);
         getPriceBTN();
         
@@ -31,8 +31,11 @@ function fetchItems(url){
     })
 
 }
+//get total from local storage
+function getTotal(){
+  CHECKOUT.innerHTML = localStorage.getItem("total");  
+}
 //list all items function
-
 function createDiv(data){
   var element = data.ProductCollection;
   var count = 0;
