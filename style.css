@@ -127,7 +127,7 @@ input:focus{
 /*start add new syle for view and contact*/
 .product-box{
         max-width: 945px;
-        margin:90px auto;
+        margin: 0px auto 100px;
         box-shadow: 0 0 62px rgba(0,0,0,.3);
         position: relative;
         padding: 70px 20px;
