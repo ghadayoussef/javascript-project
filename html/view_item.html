@@ -1,70 +1,73 @@
-
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-  
-    <title></title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-    <link href="style.css" rel="stylesheet">
-    
-  </head>
-  <body>
-    <div class="container">
-      <ul class="nav justify-content-center mb-md-3 mt-3">
-          <li class="nav-item">
-              <a class="navbar-brand text-dark mr-md-5 mb-5" href="index.html">Home</a>
-          </li>
-          <li class="nav-item">
-              <a class="navbar-brand text-dark mr-md-5 mb-5" href="#">About</a>
-          </li>
-          <li class="nav-item">
-              <a class="navbar-brand text-dark mr-md-5 mb-5" href="contact.html">Contact Us</a>
-          </li>
-      </ul>
 
-    </div>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
 
-    <!--start product view-->
-    <div class="container">
-      <div class="row product-box">
-        <div class="col-md-6 product-img">
-          <img src="laptop.jpg" class="productImg" id="productImg" >
-        </div>
-        <div class="col-md-6 product-desc">
-          <h4>Accessories</h4>
-          <h2 id="productName"></h2>
-          <h2 class="price">$ <span id="productPrice"></span></h2>
-          <hr>
-          <p id="productDescription" >
-           
-          </p>
-          <hr>
-          <div class="option">
-            <h4>QTY</h4>
-            <input type="text" value="1" name="quantity" id="quantity" class="quanity form-control">
-            <div class="count">
-              <button class="count-up btn btn-default" type="button" style="border-bottom: 0;">+</button>
-              <button class="count-down btn btn-default" type="button">-</button>  
-            </div>
-            
+  <title></title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+  <link href="style.css" rel="stylesheet">
+
+</head>
+
+<body>
+  <div class="container">
+    <ul class="nav justify-content-center mb-md-3 mt-3">
+      <li class="nav-item">
+        <a class="navbar-brand text-dark mr-md-5 mb-5" href="index.html">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="navbar-brand text-dark mr-md-5 mb-5" href="#">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="navbar-brand text-dark mr-md-5 mb-5" href="contact.html">Contact Us</a>
+      </li>
+    </ul>
+
+  </div>
+
+  <!--start product view-->
+  <div class="container">
+    <div class="row product-box">
+      <div class="col-md-6 product-img">
+        <img src="laptop.jpg" class="productImg" id="productImg">
+      </div>
+      <div class="col-md-6 product-desc">
+        <h4>Accessories</h4>
+        <h2 id="productName"></h2>
+        <h2 class="price">$ <span id="productPrice"></span></h2>
+        <hr>
+        <p id="productDescription">
+
+        </p>
+        <hr>
+        <div class="option">
+          <h4>QTY</h4>
+          <input type="text" value="1" name="quantity" id="quantity" class="quanity form-control">
+          <div class="count">
+            <button class="count-up btn btn-default" type="button" style="border-bottom: 0;">+</button>
+            <button class="count-down btn btn-default" type="button">-</button>
           </div>
 
-          <hr>
-          
-          <button class="productIdButton btn btn-rounded btn-block add-to-cart">add to cart</button>
         </div>
+
+        <hr>
+
+        <button class="productIdButton btn btn-rounded btn-block add-to-cart">add to cart</button>
       </div>
-      <div id="checkout" class="TotalButton"></div>
     </div>
-    <!--end product view-->
-  
+    <div id="checkout" class="TotalButton"></div>
+  </div>
+  <!--end product view-->
 
 
-   <!--start footer-->
+
+  <!--start footer-->
   <div class="footer p-top-bottom">
     <div class="container">
       <div class="row">
@@ -78,7 +81,7 @@
         </div>
         <!--end item-->
 
-         <!--start item-->
+        <!--start item-->
         <div class="col-md-2">
           <h4>Quick links</h4>
           <p>Jobs</p>
@@ -88,7 +91,7 @@
         </div>
         <!--end item-->
 
-         <!--start item-->
+        <!--start item-->
         <div class="col-md-2">
           <h4>Features</h4>
           <p>Jobs</p>
@@ -98,7 +101,7 @@
         </div>
         <!--end item-->
 
-         <!--start item-->
+        <!--start item-->
         <div class="col-md-2">
           <h4>Resources</h4>
           <p>Guides</p>
@@ -108,7 +111,7 @@
         </div>
         <!--end item-->
 
-         <!--start item-->
+        <!--start item-->
         <div class="col-md-4">
           <h4>Newsletter</h4>
           <p>Stay update with our latest</p>
@@ -116,106 +119,120 @@
         </div>
         <!--end item-->
 
-       
+
       </div>
     </div>
   </div>
   <!--end footer-->
 
-<script
-  src="https://code.jquery.com/jquery-3.4.1.min.js"
-  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-<script type="text/javascript">
-  $( function(){
-    $(".count-up").click( function(){
-      $("input.quanity").val( +$("input").val() + 1 );
-    } );
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+  </script>
+  <script type="text/javascript">
+    $(function () {
+      $(".count-up").click(function () {
+        $("input.quanity").val(+$("input").val() + 1);
+      });
 
-    $(".count-down").click( function(){
-      if( +$("input").val() >= 1 ){
-        $("input.quanity").val( +$("input").val() - 1 )  
-      }
-         
-    } );
-  } );
-</script>
-<script type="text/javascript">
-   let totalCart = localStorage.getItem("total") ? (localStorage.getItem("total")) : 0;
-   const cartView = document.getElementById("checkout");
-   let PRODUCTS = localStorage.getItem("products") ? JSON.parse(localStorage.getItem("products")) : 0;
-   cartView.innerHTML = PRODUCTS.length+" Items $"+totalCart;
-function getProduct() {
-  let productsDetails = localStorage.getItem("products") ? JSON.parse(localStorage.getItem("products")) : [];
+      $(".count-down").click(function () {
+        if (+$("input").val() >= 1) {
+          $("input.quanity").val(+$("input").val() - 1)
+        }
 
-    fetch("https://gist.githubusercontent.com/a7med-hussien/7fc3e1cba6abf92460d69c0437ce8460/raw/da46abcedf99a3d2bef93a322641926ff60db3c3/products.json"
-        ,{
-           cache:"force-cache",
+      });
+    });
+  </script>
+  <script type="text/javascript">
+    let totalCart = localStorage.getItem("total") ? JSON.parse(localStorage.getItem("total")) : 0;
+    const cartView = document.getElementById("checkout");
+    let PRODUCTS = localStorage.getItem("products") ? JSON.parse(localStorage.getItem("products").length) : 0;
+    cartView.innerHTML = PRODUCTS + " Items $" + totalCart;
+
+    function getProduct() {
+      let productsDetails = localStorage.getItem("products") ? JSON.parse(localStorage.getItem("products")) : [];
+
+      fetch(
+          "https://gist.githubusercontent.com/a7med-hussien/7fc3e1cba6abf92460d69c0437ce8460/raw/da46abcedf99a3d2bef93a322641926ff60db3c3/products.json", {
+            cache: "force-cache",
             method: "GET",
             mode: "cors"
-        }
+          }
         )
         .then((resp) => resp.json())
-        .then(function(data) {
-            data.ProductCollection.forEach((product)=>{
-                var urlParams = new URLSearchParams(window.location.search);
-                var id = urlParams.get('id');
-                if( product.ProductId ==  id  ){
-                    productPrice.innerHTML =  product.Price;
-                    productDescription.innerHTML =  product.Description;
-                    productName.innerHTML =  product.Name;
-                    productImg.setAttribute("src", product.ProductPicUrl );
-                    document.querySelector(".productIdButton").setAttribute("id" , id );
-                    document.getElementById(id).addEventListener("click",(e)=>{
-                      let checkout = document.getElementById("checkout");
-                      console.log(quantity.value);
-                      console.log("priceeeeeeeeee",product.Price)
-                     const found = productsDetails.find(p => p.productId == id);
-                     if(found != null)found.quantity = +quantity.value;
-                     else{
-                      productsDetails.push({
-                        productId: urlParams.get('id'),
-                        price: product.Price,
-                        quantity: quantity.value
+        .then(function (data) {
+          data.ProductCollection.forEach((product) => {
+            var urlParams = new URLSearchParams(window.location.search);
+            var id = urlParams.get('id');
+            if (product.ProductId == id) {
+              productPrice.innerHTML = product.Price;
+              productDescription.innerHTML = product.Description;
+              productName.innerHTML = product.Name;
+              productImg.setAttribute("src", product.ProductPicUrl);
+              document.querySelector(".productIdButton").setAttribute("id", id);
+              document.getElementById(id).addEventListener("click", (e) => {
+                let checkout = document.getElementById("checkout");
+                console.log("quantity",quantity.value);
+                console.log("priceeeeeeeeee", product.Price)
+                const found = productsDetails.find(p => p.productId == id);
+                if (found != null && (quantity.value == product.Quantity || quantity.value < product.Quantity))
+                  found.quantity = quantity.value;
+                else if (found != null && quantity.value > product.Quantity) {
+                  found.quantity = product.Quantity;
+                  alert("you can not add more quantity");
+                } 
+                else if (found == null && (quantity.value < product.Quantity || quantity.value == product.Quantity)) {
+                  productsDetails.push({
+                    productId: urlParams.get('id'),
+                    price: product.Price,
+                    quantity: quantity.value
 
-                      })
-                     }
-                     let t = 0;
-                    // totalItem += +productPrice.innerHTML * +quantity.value;
+                  })}
+                else {                  
+                  productsDetails.push({
+                    productId: urlParams.get('id'),
+                    price: product.Price,
+                    quantity: product.Quantity
 
-                     productsDetails.forEach((pr) =>{
-                       console.log("hena el pr",pr);
-                     console.log("hena price ",pr.price);
-                     console.log("hena el quantity ",pr.quantity)
-                       t+= +pr.price * +pr.quantity;
-                     })
-                     console.log("hena el ttt ",t);
-
-                     //console.log("henaaa el total  ",totalCart);
-
-                    localStorage.setItem("products",JSON.stringify(productsDetails));
-                    localStorage.setItem("total",JSON.stringify(t));
-                    let PRODUCTS = localStorage.getItem("products") ? JSON.parse(localStorage.getItem("products")) : 0;
-                    checkout.innerHTML = PRODUCTS.length+" Items $"+t;
-                    // checkout.addEventListener('click',() =>{
-                    //   window.location.href = "cart.html";
-                    // })
-                     })
+                  })
+                  alert("you can not add more quantity");
                 }
-            });
+                localStorage.setItem("products", JSON.stringify(productsDetails)); 
+                let t = 0;
+                // totalItem += +productPrice.innerHTML * +quantity.value;
+                productsDetails.forEach((pr) => {
+                  console.log("hena el pr", pr);
+                  console.log("hena price ", pr.price);
+                  console.log("hena el quantity ", pr.quantity)
+                  t += +pr.price * +pr.quantity;
+                })
+                console.log("hena el ttt ", t);
+
+                //console.log("henaaa el total  ",totalCart);
+
+                // localStorage.setItem("products", JSON.stringify(productsDetails));
+                localStorage.setItem("total", JSON.stringify(t));
+                let PRODUCTS = localStorage.getItem("products") ? JSON.parse(localStorage.getItem(
+                  "products")) : 0;
+                checkout.innerHTML = PRODUCTS.length + " Items $" + t;
+                // checkout.addEventListener('click',() =>{
+                //   window.location.href = "cart.html";
+                // })
+              })
+            }
+          });
         })
-        .catch(function(error) {
-            alert("Network Error")
+        .catch(function (error) {
+          alert("Network Error")
         });
-}
-cartView.addEventListener('click',()=>{
-  window.location.href = "cart.html";
-})
+    }
+    cartView.addEventListener('click', () => {
+      window.location.href = "cart.html";
+    })
 
-getProduct();
+    getProduct();
+  </script>
+</body>
 
-</script>
-  </body>
-     
 </html>

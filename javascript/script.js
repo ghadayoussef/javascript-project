@@ -50,16 +50,11 @@ function insertToHomePage(products) {
                  <h3 class="text-danger m-md-5">${"$ "+product.Price}</h3>
              </div>
              <div class="d-inline-block">
-                 <button  class="mb-2 btn btn-dark fa fa-shopping-cart priceBtn" id="${product.ProductId}" data-price="${product.Price}"></button>
+                 <button  class="mb-2 btn btn-dark fa fa-shopping-cart priceBtn" id="${product.ProductId}" data-price="${product.Price}" data-quantity="${product.Quantity}"></button>
              </div>
          </div>
      </div>
  `)
-
-
-
-
-
     })
 
 }
@@ -76,34 +71,43 @@ function getPriceBTN(products){
     element.addEventListener('click',(e)=>{
       e.stopPropagation();
         const found = productsDetails.find(p => p.productId == element.getAttribute("id"));
-        if(found != null)found.quantity +=1;
-        else {
-          let obj = {
+        console.log("hena el quantity",element.dataset.quantity)
+        if(found != null && found.quantity < element.dataset.quantity)found.quantity +=1;
+        else if(found != null &&found.quantity == element.dataset.quantity){
+          alert ("this is the maximum quantity we have in our store")
+        }
+        else{
+          productsDetails.push({
             productId: element.getAttribute("id"),
             price: element.dataset.price,
             quantity: 1
-          }
-          productsDetails.push(obj);
-        }         
+          })         
+        }
+              
       localStorage.setItem("products",JSON.stringify(productsDetails));
       console.log(element.getAttribute("id"));
       let id = element.getAttribute("id");
-      
-      products.forEach((e)=>{
-          if(e.ProductId === id){
-            //let totalCheckout = parseInt(CHECKOUT.getAttribute("total"));
-            let totalCheckout = parseInt(JSON.parse(localStorage.getItem("total")));
-            console.log("type of totalCheckout",typeof(totalCheckout));
-            totalCheckout += e.Price;
-            console.log("hena el checkout ",totalCheckout);
-            console.log("element price",e.Price);
-            console.log("totalCheckout",totalCheckout)
-            CHECKOUT.setAttribute("total",totalCheckout.toString());       
-            CHECKOUT.innerHTML = productsDetails.length+" Items $"+totalCheckout;
-            localStorage.setItem("total",JSON.stringify(totalCheckout));
+      var t = 0;
+      productsDetails.forEach((p)=>{
+        t += p.price * p.quantity;
+        CHECKOUT.innerHTML = productsDetails.length+" Items $"+t;
+        localStorage.setItem("total",JSON.stringify(t));
+      })
+      // products.forEach((e)=>{
+      //     if(e.ProductId === id){
+      //       //let totalCheckout = parseInt(CHECKOUT.getAttribute("total"));
+      //       let totalCheckout = parseInt(JSON.parse(localStorage.getItem("total")));
+      //       console.log("type of totalCheckout",typeof(totalCheckout));
+      //       totalCheckout += e.Price;
+      //       console.log("hena el checkout ",totalCheckout);
+      //       console.log("element price",e.Price);
+      //       console.log("totalCheckout",totalCheckout)
+      //       CHECKOUT.setAttribute("total",totalCheckout.toString());       
+      //       CHECKOUT.innerHTML = productsDetails.length+" Items $"+totalCheckout;
+      //       localStorage.setItem("total",JSON.stringify(totalCheckout));
             
-          }
-        })
+      //     }
+      //   })
       
       
     })

@@ -22,7 +22,7 @@ function makeProduct(products){
                 img.setAttribute("src", imageUrl);
                 img.setAttribute("width", "100");
                 img.setAttribute("height", "100");
-                console.log("da5all el conditioon");
+                //console.log("da5all el conditioon");
                 const tr = document.createElement('tr');
 			    table.append(tr);      
                 const td1 = document.createElement('td');
