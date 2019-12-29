@@ -1,29 +1,38 @@
 $(document).ready(function(){
     $("form").submit(function(e){
          e.preventDefault();
-        sendFeedback($("#name").val(),$("#email").val(),$("#subject").val(),$("#message").val());
+        let name=$("#name").val()
+        let email=$("#email").val()
+        let subject=$("#subject").val()
+        let message=$("#message").val()
+        if(name &&email&&subject&&message){
+            sendFeedback(name,email,subject,message);
+        }
       });
   });
-function sendFeedback(fname,email,subject,message){
-    console.log(fname+email+subject+message)
-    fetch("http://js.vacsera.com/api/final-project"
-,{
-    method: "POST",
-    mode: "no-cors",
-    headers : new Headers(),
-    body:JSON.stringify({
-        name:fname,
-        email:email,
-        subject:subject,
-        message:message
+function sendFeedback(name,email,subject,message){
+    const data = {
+            name: name,
+            email: email,
+            subject: subject,
+            message: message
+        }
+    fetch('https://afternoon-falls-30227.herokuapp.com/api/v1/contact_us', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
     })
-})
-.then((resp) => resp.json())
-.then(function(data) {
-    console.log(data);
-})
-.catch(function(error) {
-   alert("Message Send Success")
-    window.location.href="index.html"
-});
+        .then((response) => response.json())
+        .then((data) => {
+            console.log('Success:', data.status);
+            if(data.status){
+                $("#popup").click()
+            }
+
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
 }
