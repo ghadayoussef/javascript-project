@@ -29,6 +29,12 @@ function makeProduct(products){
                 td1.appendChild(img);
                 let name = document.createTextNode(item.Name);
 			    td1.appendChild(name);
+                td1.setAttribute("id",item.ProductId)
+                td1.style.cursor="pointer";
+                td1.addEventListener("click",evt => {
+                    let queryString = "?id="+td1.getAttribute("id");
+                    window.location.href = "view_item.html" + queryString;
+                })
 			    tr.appendChild(td1);
 			    const td2 = document.createElement('td');
                 td2.innerHTML = item.Price;
