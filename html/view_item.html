@@ -144,7 +144,7 @@
  
 function getProduct() {
   let productsDetails = localStorage.getItem("products") ? JSON.parse(localStorage.getItem("products")) : [];
-  let totalCart = localStorage.getItem("total") ? JSON.parse(localStorage.getItem("total")) : 0;
+  //let totalCart = localStorage.getItem("total") ? JSON.parse(localStorage.getItem("total")) : 0;
 
     fetch("https://gist.githubusercontent.com/a7med-hussien/7fc3e1cba6abf92460d69c0437ce8460/raw/da46abcedf99a3d2bef93a322641926ff60db3c3/products.json"
         ,{
@@ -165,20 +165,33 @@ function getProduct() {
                     productImg.setAttribute("src", product.ProductPicUrl );
                     document.querySelector(".productIdButton").setAttribute("id" , id );
                     document.getElementById(id).addEventListener("click",(e)=>{
-                      console.log(quantity.value)
+                      console.log(quantity.value);
+                      console.log("priceeeeeeeeee",product.Price)
                      const found = productsDetails.find(p => p.productId == id);
-                     if(found != null)found.quantity += +quantity.value;
+                     if(found != null)found.quantity = +quantity.value;
                      else{
                       productsDetails.push({
                         productId: urlParams.get('id'),
+                        price: product.Price,
                         quanity: quantity.value
 
                       })
                      }
-                     totalCart += +productPrice.innerHTML * +quantity.value;
-                      
-                      localStorage.setItem("products",JSON.stringify(productsDetails));
-                      localStorage.setItem("total",totalCart)
+                     let t = 0;
+                    // totalItem += +productPrice.innerHTML * +quantity.value;
+
+                     productsDetails.forEach((pr) =>{
+                       console.log("hena el pr",pr);
+                     console.log("hena price ",pr.price);
+                     console.log("hena el quantity ",pr.quantity)
+                       t+= +pr.price * +pr.quantity;
+                     })
+                     console.log("hena el ttt ",t);
+
+                     //console.log("henaaa el total  ",totalCart);
+
+                    localStorage.setItem("products",JSON.stringify(productsDetails));
+                    localStorage.setItem("total",JSON.stringify(t));
                      })
                 }
             });

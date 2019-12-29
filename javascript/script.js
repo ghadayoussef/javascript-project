@@ -33,9 +33,12 @@ function insertToHomePage(products) {
    let mainDiv= document.getElementById("all")
     products.forEach((product) => {
       productArray.push(product)
+      // product.setAttribute("price",product.Price);
+      //      ${console.log("Priceeeeeee",product.Price)}
+
       mainDiv.insertAdjacentHTML('beforeend', `
        <div class="col-lg-4 col-md-6 text-center">
-             <div id="${product.ProductId}" class="card  media-block card-bordered" style="cursor: pointer;" onclick="showProduct(getAttribute('id'))" )>
+             <div id="${product.ProductId}" " class="card  media-block card-bordered" style="cursor: pointer;" onclick="showProduct(getAttribute('id'))" )>
              <div style="height: 50%;">
              <div class="text-card media-block card-borderedenter m-md-3 text-primary w-100">
                  <h6 class="font-weight-bold">${product.Name}</h6>
@@ -47,7 +50,7 @@ function insertToHomePage(products) {
                  <h3 class="text-danger m-md-5">${"$ "+product.Price}</h3>
              </div>
              <div class="d-inline-block">
-                 <button  class="mb-2 btn btn-dark fa fa-shopping-cart priceBtn" id="${product.ProductId}"></button>
+                 <button  class="mb-2 btn btn-dark fa fa-shopping-cart priceBtn" id="${product.ProductId}" data-price="${product.Price}"></button>
              </div>
          </div>
      </div>
@@ -77,6 +80,7 @@ function getPriceBTN(products){
         else {
           let obj = {
             productId: element.getAttribute("id"),
+            price: element.dataset.price,
             quantity: 1
           }
           productsDetails.push(obj);

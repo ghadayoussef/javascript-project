@@ -1,7 +1,6 @@
 const URL ="https://gist.githubusercontent.com/a7med-hussien/7fc3e1cba6abf92460d69c0437ce8460/raw/da46abcedf99a3d2bef93a322641926ff60db3c3/products.json"
 let itemsArray = localStorage.getItem("items") ? JSON.parse(localStorage.getItem("items")) : [];
 let productsDetails = JSON.parse(localStorage.getItem("products"));
-let total = JSON.parse(localStorage.getItem("total"));
 const table = document.getElementById("products-table");
 const tableTotal = document.getElementById("table-total");
 function fetchData(){
@@ -12,7 +11,9 @@ function fetchData(){
     })
     
 }
+
 function makeProduct(products){
+    let tot = 0;
     productsDetails.forEach(element => {
         products.forEach(item=>{
             if(item.ProductId == element.productId){
@@ -60,8 +61,16 @@ function makeProduct(products){
                 table.appendChild(tr);
             }
         })
+
         
+        // console.log("hena el pr",element);
+        // console.log("hena price ",element.price);
+        // console.log("hena el quantity ",element.quantity)
+        tot+= +element.price * +element.quantity;
+        localStorage.setItem("total",JSON.stringify(tot));
+
     });
+    let total = JSON.parse(localStorage.getItem("total"));
     let totalRow = document.createElement("tr");
     let totalCart = document.createElement("td");
     let t = document.createElement("td");
