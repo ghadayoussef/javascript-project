@@ -142,9 +142,10 @@
   } );
 </script>
 <script type="text/javascript">
-   let totalCart = localStorage.getItem("total") ? JSON.parse(localStorage.getItem("total")) : 0;
+   let totalCart = localStorage.getItem("total") ? (localStorage.getItem("total")) : 0;
    const cartView = document.getElementById("checkout");
-   cartView.innerHTML = totalCart;
+   let PRODUCTS = localStorage.getItem("products") ? JSON.parse(localStorage.getItem("products")) : 0;
+   cartView.innerHTML = PRODUCTS.length+" Items $"+totalCart;
 function getProduct() {
   let productsDetails = localStorage.getItem("products") ? JSON.parse(localStorage.getItem("products")) : [];
 
@@ -195,10 +196,11 @@ function getProduct() {
 
                     localStorage.setItem("products",JSON.stringify(productsDetails));
                     localStorage.setItem("total",JSON.stringify(t));
-                    checkout.innerHTML = t;
-                    checkout.addEventListener('click',() =>{
-                      window.location.href = "cart.html";
-                    })
+                    let PRODUCTS = localStorage.getItem("products") ? JSON.parse(localStorage.getItem("products")) : 0;
+                    checkout.innerHTML = PRODUCTS.length+" Items $"+t;
+                    // checkout.addEventListener('click',() =>{
+                    //   window.location.href = "cart.html";
+                    // })
                      })
                 }
             });
@@ -207,13 +209,13 @@ function getProduct() {
             alert("Network Error")
         });
 }
-
-// cartView.addEventListener('click',()=>{
-//   window.location.href = "cart.html";
-// })
+cartView.addEventListener('click',()=>{
+  window.location.href = "cart.html";
+})
 
 getProduct();
 
 </script>
+  </body>
      
 </html>

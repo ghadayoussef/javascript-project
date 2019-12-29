@@ -65,7 +65,7 @@ function insertToHomePage(products) {
 }
 //get total from local storage
 function getTotal(){
-  CHECKOUT.innerHTML = localStorage.getItem("total");  
+  CHECKOUT.innerHTML = productsDetails.length+" Items $"+localStorage.getItem("total");
 }
 //list all items function
 
@@ -99,7 +99,7 @@ function getPriceBTN(products){
             console.log("element price",e.Price);
             console.log("totalCheckout",totalCheckout)
             CHECKOUT.setAttribute("total",totalCheckout.toString());       
-            CHECKOUT.innerHTML = totalCheckout;
+            CHECKOUT.innerHTML = productsDetails.length+" Items $"+totalCheckout;
             localStorage.setItem("total",JSON.stringify(totalCheckout));
             
           }

@@ -30,6 +30,9 @@ function sendFeedback(name,email,subject,message){
             if(data.status){
                 $("#popup").click()
             }
+            else{
+                alert("Error,try again")
+            }
 
         })
         .catch((error) => {
