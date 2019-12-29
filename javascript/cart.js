@@ -12,10 +12,8 @@ function fetchData(){
     })
     
 }
-
 function makeProduct(products){
     productsDetails.forEach(element => {
-        //console.log("element",element);
         products.forEach(item=>{
             if(item.ProductId == element.productId){
                 let imageUrl = item.ProductPicUrl;
@@ -40,6 +38,25 @@ function makeProduct(products){
                 const td4 = document.createElement('td');
                 td4.innerHTML = element.quantity * item.Price;
                 tr.appendChild(td4);
+                const td5 = document.createElement('button');
+                td5.className ="btn btn-outline-primary";
+                td5.setAttribute("id",element.productId);
+                td5.innerHTML = "delete";
+                tr.appendChild(td5);
+                td5.addEventListener('click',(e)=>{
+                    productsDetails.forEach((p) =>{
+                       if(p.productId == td5.getAttribute("id")){
+                        var index = productsDetails.indexOf(p);
+                        productsDetails.splice(index,1);
+                        localStorage.setItem("products",JSON.stringify(productsDetails));
+                        total -= +td4.innerHTML;
+                        localStorage.setItem("total",JSON.stringify(total));
+                        document.querySelector(".totalNumber").innerHTML = total;
+                       }
+                    })
+                    td5.parentElement.remove();
+
+                })                
                 table.appendChild(tr);
             }
         })
@@ -48,6 +65,7 @@ function makeProduct(products){
     let totalRow = document.createElement("tr");
     let totalCart = document.createElement("td");
     let t = document.createElement("td");
+    t.className = "totalNumber";
     totalCart.innerHTML = "Total";        
     t.innerHTML = total.toString();
     totalRow.appendChild(totalCart);
