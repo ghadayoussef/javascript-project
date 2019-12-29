@@ -196,6 +196,7 @@ function getProduct() {
 
                     localStorage.setItem("products",JSON.stringify(productsDetails));
                     localStorage.setItem("total",JSON.stringify(t));
+                    let PRODUCTS = localStorage.getItem("products") ? JSON.parse(localStorage.getItem("products")) : 0;
                     checkout.innerHTML = PRODUCTS.length+" Items $"+t;
                     // checkout.addEventListener('click',() =>{
                     //   window.location.href = "cart.html";
@@ -215,5 +216,6 @@ cartView.addEventListener('click',()=>{
 getProduct();
 
 </script>
+  </body>
      
 </html>
