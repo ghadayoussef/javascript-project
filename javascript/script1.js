@@ -22,8 +22,9 @@ function getProducts() {
         .then((resp) => resp.json())
         .then(function(data) {
             getTotal();
-            insertToHomePage(data.ProductCollection);
-            getPriceBTN(productArray);
+            paginate(data.ProductCollection)
+            insertToHomePage(globalArray[0]);
+            getPriceBTN(globalArray[0]);
         })
         .catch(function(error) {
             alert("Network Error")
@@ -37,13 +38,13 @@ function insertToHomePage(products) {
         //      ${console.log("Priceeeeeee",product.Price)}
 
         mainDiv.insertAdjacentHTML('beforeend', `
-       <div class="col-lg-4 col-md-6 text-center">
-             <div id="${product.ProductId}" " class="card  media-block card-bordered" style="cursor: pointer;" onclick="showProduct(getAttribute('id'))" )>
+       <div class="col-lg-4 col-md-6 text-center ac">
+             <div class="card  media-block card-bordered">
              <div style="height: 50%;">
              <div class="text-card media-block card-borderedenter m-md-3 text-primary w-100">
                  <h6 class="font-weight-bold">${product.Name}</h6>
              </div>
-             <div>
+             <div id="${product.ProductId}" style="cursor: pointer;" onclick="showProduct(getAttribute('id'))" )>
                  <img class="ff" src="${product.ProductPicUrl}">
              </div>
              <div class="d-inline-block">
@@ -55,6 +56,11 @@ function insertToHomePage(products) {
          </div>
      </div>
  `)
+
+
+
+
+
     })
 
 }
