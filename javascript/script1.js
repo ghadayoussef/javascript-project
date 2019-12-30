@@ -56,16 +56,12 @@ function insertToHomePage(products) {
          </div>
      </div>
  `)
-
-
-
-
-
     })
 
 }
 //get total from local storage
 function getTotal(){
+    //document.getElementById("1").style.backgroundColor="#343a40"
     CHECKOUT.innerHTML = productsDetails.length+" Items $"+localStorage.getItem("total");
 }
 //list all items function
@@ -139,10 +135,18 @@ function paginate (array) {
     for (let i=0;i<array.length;i+=15) {
         pageNumber++
         SPAN.insertAdjacentHTML("beforeend",
-            `<button id='${i/15}' class="pn btn" onclick="setHtmlAndInsert(getAttribute('id'))">${pageNumber}</button>
+            `<button id='${i/15}' class="pn btn" onclick=" changeColor();this.style.backgroundColor='#343a40';setHtmlAndInsert(getAttribute('id'))">${pageNumber}</button>
 `)
         slicedArray = array.slice(i,i+15);
         globalArray.push(slicedArray);
+    }
+    document.getElementById("0").style.backgroundColor="#343a40"
+}
+function changeColor() {
+    let elements = document.getElementsByClassName("pn");
+    for (let i=0; i<elements.length; i++ ) {
+        document.getElementById(elements[i].id).style.backgroundColor = "#60a3bc";
+        console.log(elements[i].id)
     }
 }
 function setHtmlAndInsert(id) {
