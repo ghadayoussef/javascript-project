@@ -45,11 +45,13 @@ function makeProduct(products){
                 const td4 = document.createElement('td');
                 td4.innerHTML = element.quantity * item.Price;
                 tr.appendChild(td4);
+                const td6 = document.createElement('td');
                 const td5 = document.createElement('button');
-                td5.className ="btn btn-outline-primary";
+                td5.className ="btn btn-outline-primary delete";
                 td5.setAttribute("id",element.productId);
                 td5.innerHTML = "delete";
-                tr.appendChild(td5);
+                td6.appendChild(td5);
+                tr.appendChild(td6);
                 td5.addEventListener('click',(e)=>{
                     productsDetails.forEach((p) =>{
                        if(p.productId == td5.getAttribute("id")){
@@ -61,8 +63,7 @@ function makeProduct(products){
                         document.querySelector(".totalNumber").innerHTML = total;
                        }
                     })
-                    td5.parentElement.remove();
-
+                    td5.parentElement.parentElement.remove();
                 })                
                 table.appendChild(tr);
             }
