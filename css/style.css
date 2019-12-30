@@ -1,3 +1,6 @@
+body{
+    padding-top: 10em;
+}
 .media-block {
     margin-bottom: 50px;
     white-space: normal;
@@ -40,3 +43,14 @@
     border-radius: 10px;
 }
 
+.navbar{
+    padding: 1.1rem 1rem;
+}
+.dropdown-item.active, .dropdown-item:active {
+    color: #fff;
+    text-decoration: none;
+    background-color: #f7631b;
+}
+.navbar-light .navbar-toggler{
+    margin-left: auto
+}

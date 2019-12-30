@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="../css/style.css">
 <style>
 html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 .w3-text-teal, .w3-hover-text-teal:hover {
@@ -23,21 +24,47 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 .w3-container{
   margin-bottom: 16px
 }
+.w3-light-grey, .w3-hover-light-grey:hover, .w3-light-gray, .w3-hover-light-gray:hover {
+    color: #000!important;
+    background-color: #fff!important;
+}
 </style>
 <body class="w3-light-grey">
 
 <div class="container">
-      <ul class="nav justify-content-center mb-md-3 mt-3">
-          <li class="nav-item">
-              <a class="navbar-brand text-dark mr-md-5 mb-5" href="index.html">Home</a>
-          </li>
-          <li class="nav-item">
-              <a class="navbar-brand text-dark mr-md-5 mb-5" href="#">About</a>
-          </li>
-          <li class="nav-item">
-              <a class="navbar-brand text-dark mr-md-5 mb-5" href="contact.html">Contact Us</a>
-          </li>
-      </ul>
+            <!--start navbar-->
+            <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" style="box-shadow: 0 10px 30px 0 rgba(138, 155, 165, 0.15);">
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto" style="margin: auto;font-size: 1.2em;">
+                  <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                  </li>
+                 
+                  <li class="nav-item dropdown active">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      About
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="ghada.html">Ghada</a>
+                      <a class="dropdown-item" href="islam.html">Islam</a>
+                      <a class="dropdown-item" href="ahmed.html">Ahmed</a>
+                    </div>
+                  </li>
+
+                   <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact Us</a>
+                  </li>
+
+                </ul>
+              
+              </div>
+            </nav>
+            <!--end navbar-->  
+     
 
     </div>
 

@@ -54,7 +54,7 @@
 }
 .contact-form h2:after{
 	content: "";
-    top: 60px;
+    top: 57px;
     left: 15px;
     position: absolute;
     width: 100px;
@@ -106,7 +106,7 @@ input:focus{
 }
 
 .p-top-bottom{
-	padding-top: 70px;
+	/*padding-top: 70px;*/
 	padding-bottom: 70px;
 }
 .mg-20{
