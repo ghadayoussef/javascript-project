@@ -137,7 +137,7 @@
       });
 
       $(".count-down").click(function () {
-        if (+$("input").val() > 1) {
+        if (+$("input").val() >= 1) {
           $("input.quanity").val(+$("input").val() - 1)
         }
 
@@ -147,7 +147,7 @@
   <script type="text/javascript">
     let totalCart = localStorage.getItem("total") ? JSON.parse(localStorage.getItem("total")) : 0;
     const cartView = document.getElementById("checkout");
-    let PRODUCTS = localStorage.getItem("products") ? (JSON.parse(localStorage.getItem("products"))).length : 0;
+    let PRODUCTS = localStorage.getItem("products") ? JSON.parse(localStorage.getItem("products")).length : 0;
     cartView.innerHTML = PRODUCTS + " Items $" + totalCart;
 
     function getProduct() {
@@ -208,13 +208,10 @@
                   t += +pr.price * +pr.quantity;
                 })
                 console.log("hena el ttt ", t);
-
-                //console.log("henaaa el total  ",totalCart);
-
-                // localStorage.setItem("products", JSON.stringify(productsDetails));
                 localStorage.setItem("total", JSON.stringify(t));
-                let PRODUCTS = localStorage.getItem("products") ? (JSON.parse(localStorage.getItem(
-                  "products"))).length : 0;
+                let PRODUCTS = localStorage.getItem("products") ? JSON.parse(localStorage.getItem("products")).length : 0;
+                //console.log("lengthhhhhhh ",JSON.parse(localStorage.getItem("products")).length);
+
                 checkout.innerHTML = PRODUCTS + " Items $" + t;
                 // checkout.addEventListener('click',() =>{
                 //   window.location.href = "cart.html";
