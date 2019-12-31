@@ -22,8 +22,8 @@ body{
     right: 0;
     position: fixed;
     background-color: rgb(219, 218, 218);
-    padding-right: 40px;
-    padding-left: 40px;
+    padding-right: 30px;
+    padding-left: 30px;
     padding-top: 10px;
     padding-bottom: 10px;
     border-radius: 10px;
@@ -41,6 +41,10 @@ body{
     padding-top: 10px;
     padding-bottom: 10px;
     border-radius: 10px;
+    font-weight: 900;
+}
+#checkout{
+    font-weight: 900;
 }
 
 .navbar{
@@ -53,4 +57,28 @@ body{
 }
 .navbar-light .navbar-toggler{
     margin-left: auto
+}
+body{text-align: center}
+.btn[class="pn btn"] {
+    color: #fff !important;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #60a3bc;
+    padding: 20px;
+    border-radius: 50px;
+    display: inline-block;
+    border: none;
+    transition: all 0.4s ease 0s;
+    margin: 1px;
+}
+.numberItem {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    padding: 6px;
+    background: yellow;
+    /*border: 2px solid #666;*/
+    color: #666;
+    text-align: center;
+    font: 15px Arial, sans-serif;
 }

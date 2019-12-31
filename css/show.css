@@ -234,4 +234,15 @@ input:focus{
   border-radius: 10px;
   cursor: pointer;
 }
+.numberItem {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    padding: 6px;
+    background: yellow;
+    /*border: 2px solid #666;*/
+    color: #666;
+    text-align: center;
+    font: 15px Arial, sans-serif;
+}
 /*end add new syle for view and contact*/

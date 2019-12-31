@@ -11,28 +11,47 @@
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
     integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-  <link href="style.css" rel="stylesheet">
-
+  <link href="../css/show.css" rel="stylesheet">
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
 <body>
   <div class="container">
-    <ul class="nav justify-content-center mb-md-3 mt-3">
-      <li class="nav-item">
-        <a class="navbar-brand text-dark mr-md-5 mb-5" href="index.html">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="navbar-brand text-dark mr-md-5 mb-5" href="#">About</a>
-      </li>
-      <li class="nav-item">
-        <a class="navbar-brand text-dark mr-md-5 mb-5" href="contact.html">Contact Us</a>
-      </li>
-    </ul>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" style="box-shadow: 0 10px 30px 0 rgba(138, 155, 165, 0.15);">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto" style="margin: auto;font-size: 1.2em;">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              About
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="ghada.html">Ghada</a>
+              <a class="dropdown-item" href="islam.html">Islam</a>
+              <a class="dropdown-item" href="ahmed.html">Ahmed</a>
+            </div>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact Us</a>
+          </li>
+
+        </ul>
+
+      </div>
+    </nav>
 
   </div>
 
   <!--start product view-->
-  <div class="container">
+  <div class="container m-5">
     <div class="row product-box">
       <div class="col-md-6 product-img">
         <img src="laptop.jpg" class="productImg" id="productImg">
@@ -48,7 +67,7 @@
         <hr>
         <div class="option">
           <h4>QTY</h4>
-          <input type="text" value="1" name="quantity" id="quantity" class="quanity form-control">
+          <input type="text" value="1" name="quantity" id="quantity" class="quanity form-control" oninput="if (this.value<1) this.value=1 ">
           <div class="count">
             <button class="count-up btn btn-default" type="button" style="border-bottom: 0;">+</button>
             <button class="count-down btn btn-default" type="button">-</button>
@@ -61,70 +80,12 @@
         <button class="productIdButton btn btn-rounded btn-block add-to-cart">add to cart</button>
       </div>
     </div>
-    <div id="checkout" class="TotalButton"></div>
-  </div>
-  <!--end product view-->
-
-
-
-  <!--start footer-->
-  <div class="footer p-top-bottom">
-    <div class="container">
-      <div class="row">
-        <!--start item-->
-        <div class="col-md-2">
-          <h4>Top Products</h4>
-          <p>Managed Website</p>
-          <p>Manage Reputation</p>
-          <p>Power Tools</p>
-          <p>Marketing Service</p>
-        </div>
-        <!--end item-->
-
-        <!--start item-->
-        <div class="col-md-2">
-          <h4>Quick links</h4>
-          <p>Jobs</p>
-          <p>Brand Assets</p>
-          <p>Investor Relations</p>
-          <p>Terms of Service</p>
-        </div>
-        <!--end item-->
-
-        <!--start item-->
-        <div class="col-md-2">
-          <h4>Features</h4>
-          <p>Jobs</p>
-          <p>Brand Assets</p>
-          <p>Investor Relations</p>
-          <p>Terms of Service</p>
-        </div>
-        <!--end item-->
-
-        <!--start item-->
-        <div class="col-md-2">
-          <h4>Resources</h4>
-          <p>Guides</p>
-          <p>Research</p>
-          <p>Experts</p>
-          <p>Agencies</p>
-        </div>
-        <!--end item-->
-
-        <!--start item-->
-        <div class="col-md-4">
-          <h4>Newsletter</h4>
-          <p>Stay update with our latest</p>
-          <input type="text" name="address" class="form-control" placeholder="Enter Email Address">
-        </div>
-        <!--end item-->
-
-
-      </div>
+    <div id="allCheckout" class="TotalButton">
+      <div id="total-view" class="numberItem" style="display: inline-block"></div>
+      <div id="checkout" class="fa fa-shopping-cart" style="display: inline-block"></div>
     </div>
   </div>
-  <!--end footer-->
-
+  <!--end product view-->
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
@@ -137,99 +98,14 @@
       });
 
       $(".count-down").click(function () {
-        if (+$("input").val() >= 1) {
+        if (+$("input").val() >1) {
           $("input.quanity").val(+$("input").val() - 1)
         }
 
       });
     });
   </script>
-  <script type="text/javascript">
-    let totalCart = localStorage.getItem("total") ? JSON.parse(localStorage.getItem("total")) : 0;
-    const cartView = document.getElementById("checkout");
-    let PRODUCTS = localStorage.getItem("products") ? JSON.parse(localStorage.getItem("products")).length : 0;
-    cartView.innerHTML = PRODUCTS + " Items $" + totalCart;
-
-    function getProduct() {
-      let productsDetails = localStorage.getItem("products") ? JSON.parse(localStorage.getItem("products")) : [];
-
-      fetch(
-          "https://gist.githubusercontent.com/a7med-hussien/7fc3e1cba6abf92460d69c0437ce8460/raw/da46abcedf99a3d2bef93a322641926ff60db3c3/products.json", {
-            cache: "force-cache",
-            method: "GET",
-            mode: "cors"
-          }
-        )
-        .then((resp) => resp.json())
-        .then(function (data) {
-          data.ProductCollection.forEach((product) => {
-            var urlParams = new URLSearchParams(window.location.search);
-            var id = urlParams.get('id');
-            if (product.ProductId == id) {
-              productPrice.innerHTML = product.Price;
-              productDescription.innerHTML = product.Description;
-              productName.innerHTML = product.Name;
-              productImg.setAttribute("src", product.ProductPicUrl);
-              document.querySelector(".productIdButton").setAttribute("id", id);
-              document.getElementById(id).addEventListener("click", (e) => {
-                let checkout = document.getElementById("checkout");
-                console.log("quantity",quantity.value);
-                console.log("priceeeeeeeeee", product.Price)
-                const found = productsDetails.find(p => p.productId == id);
-                if (found != null && (quantity.value == product.Quantity || quantity.value < product.Quantity))
-                  found.quantity = quantity.value;
-                else if (found != null && quantity.value > product.Quantity) {
-                  found.quantity = product.Quantity;
-                  alert("you can not add more quantity");
-                } 
-                else if (found == null && (quantity.value < product.Quantity || quantity.value == product.Quantity)) {
-                  productsDetails.push({
-                    productId: urlParams.get('id'),
-                    price: product.Price,
-                    quantity: quantity.value
-
-                  })}
-                else {                  
-                  productsDetails.push({
-                    productId: urlParams.get('id'),
-                    price: product.Price,
-                    quantity: product.Quantity
-
-                  })
-                  alert("you can not add more quantity");
-                }
-                localStorage.setItem("products", JSON.stringify(productsDetails)); 
-                let t = 0;
-                // totalItem += +productPrice.innerHTML * +quantity.value;
-                productsDetails.forEach((pr) => {
-                  console.log("hena el pr", pr);
-                  console.log("hena price ", pr.price);
-                  console.log("hena el quantity ", pr.quantity)
-                  t += +pr.price * +pr.quantity;
-                })
-                console.log("hena el ttt ", t);
-                localStorage.setItem("total", JSON.stringify(t));
-                let PRODUCTS = localStorage.getItem("products") ? JSON.parse(localStorage.getItem("products")).length : 0;
-                //console.log("lengthhhhhhh ",JSON.parse(localStorage.getItem("products")).length);
-
-                checkout.innerHTML = PRODUCTS + " Items $" + t;
-                // checkout.addEventListener('click',() =>{
-                //   window.location.href = "cart.html";
-                // })
-              })
-            }
-          });
-        })
-        .catch(function (error) {
-          alert("Network Error")
-        });
-    }
-    cartView.addEventListener('click', () => {
-      window.location.href = "cart.html";
-    })
-
-    getProduct();
-  </script>
+  <script src="../javascript/view_item.js"></script>
 </body>
 
 </html>

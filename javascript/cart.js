@@ -47,9 +47,9 @@ function makeProduct(products){
                 tr.appendChild(td4);
                 const td6 = document.createElement('td');
                 const td5 = document.createElement('button');
-                td5.className ="btn btn-outline-primary delete";
+                td5.className ="btn btn-outline-primary  delete";
                 td5.setAttribute("id",element.productId);
-                td5.innerHTML = "delete";
+                td5.innerHTML = "Remove";
                 td6.appendChild(td5);
                 tr.appendChild(td6);
                 td5.addEventListener('click',(e)=>{
@@ -69,10 +69,6 @@ function makeProduct(products){
             }
         })
 
-        
-        // console.log("hena el pr",element);
-        // console.log("hena price ",element.price);
-        // console.log("hena el quantity ",element.quantity)
         tot+= +element.price * +element.quantity;
         localStorage.setItem("total",JSON.stringify(tot));
 
@@ -82,7 +78,7 @@ function makeProduct(products){
     let totalCart = document.createElement("td");
     let t = document.createElement("td");
     t.className = "totalNumber";
-    totalCart.innerHTML = "Total";        
+    totalCart.innerHTML = "Total";
     t.innerHTML = total.toString();
     totalRow.appendChild(totalCart);
     totalRow.appendChild(t);
